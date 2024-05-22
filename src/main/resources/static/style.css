@@ -1,0 +1,39 @@
+/* Style for the container to give some padding and margin for overall alignment */
+.container {
+    padding-top: 2rem; /* Add padding at the top for some breathing room */
+}
+
+/* Header styles to make the title stand out more */
+h1 {
+    color: #0d6efd; /* Use Bootstrap's primary color */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow for depth */
+}
+
+/* Custom styles for list items */
+.list-group-item {
+    background-color: #ffffff; /* White background */
+    border-left: 5px solid #0d6efd; /* Add a left border for a touch of design */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover effect to lift the card */
+.list-group-item:hover {
+    transform: translateY(-5px); /* Move the item up slightly when hovered */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a shadow to lift the item visually */
+}
+
+/* Button styles for delete button */
+.btn-danger {
+    font-weight: bold; /* Make text bold */
+    letter-spacing: 0.5px; /* Spacing between letters */
+}
+
+/* Additional responsiveness to ensure usability on mobile devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem; /* Less padding on smaller screens */
+    }
+    .list-group-item {
+        margin-bottom: 1rem; /* Add bottom margin to each item for clearer separation */
+    }
+}
