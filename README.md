@@ -79,7 +79,7 @@ docker run -e SPRING_PROFILES_ACTIVE=dev -p 8080:8080 task-service:latest
 
 ### Usage
 
-View TODO Entries: Open your browser and go to http://localhost:80807. All current TODO entries will be displayed, if you have added. Currently we are adding Todos via postman.
+View TODO Entries: Open your browser and go to http://localhost:8080/. All current TODO entries will be displayed, if you have added. Currently we are adding Todos via postman.
 Delete a TODO Entry: Click on a TODO entry on the website to delete it.
 
 ```bash
