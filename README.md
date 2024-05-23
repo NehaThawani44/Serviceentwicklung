@@ -7,10 +7,10 @@ it offers a RESTful API for the full lifecycle management of to-dos.
 ## Features
 
 - **CRUD Operations**: Manage your to-dos with full create, read, update, and delete.
-- **Data Persistence**: Utilizes the h2 DB to ensure data is maintained across application restarts.
+- **Data Persistence**: Utilizes the h2 DB to ensure data is maintained inmemory for the application.
 - **Efficient and Faster**: Built on Spring Boot, known for its minimal complexity for dependencies.
-- **Testing Ready**:  Includes unit and integration tests, ensuring reliable operation.
--  **Scripting**: Shell scripts for Unix/Linux and Batch scripts for Windows
+- **Testing Ready**:  Includes basic unit and integration tests, ensuring reliable operation.
+-  **Scripting**: Shell scripts for Unix/Linux and Batch scripts for Windows.
 
 ## Getting Started
 
