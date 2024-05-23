@@ -23,23 +23,23 @@ public class ToDoController {
 
     @GetMapping
     public ResponseEntity<List<ToDo>> getAllTodos() {
-        List<ToDo> todos = toDoRepository.findAll();
-        if (todos.isEmpty()) {
+        List<ToDo> toDos = toDoRepository.findAll();
+        if (toDos.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(todos);
+        return ResponseEntity.ok(toDos);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ToDo> getTodoById(@PathVariable Long id) {
-        Optional<ToDo> todo = toDoRepository.findById(id);
-        return todo.map(ResponseEntity::ok)
+        Optional<ToDo> toDo = toDoRepository.findById(id);
+        return toDo.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping("/")
-    public ResponseEntity<ToDo> createTodo(@RequestBody ToDo todo) {
-        ToDo savedTodo = toDoRepository.save(todo);
+    public ResponseEntity<ToDo> createTodo(@RequestBody ToDo toDo) {
+        ToDo savedTodo = toDoRepository.save(toDo);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(savedTodo.getId())
@@ -48,12 +48,12 @@ public class ToDoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ToDo> updateTodo(@PathVariable Long id, @RequestBody ToDo todo) {
+    public ResponseEntity<ToDo> updateTodo(@PathVariable Long id, @RequestBody ToDo toDo) {
         return toDoRepository.findById(id)
                 .map(existingTodo -> {
-                    existingTodo.setTitle(todo.getTitle());
-                    existingTodo.setDescription(todo.getDescription());
-                    existingTodo.setCompletionDate(todo.getCompletionDate());
+                    existingTodo.setTitle(toDo.getTitle());
+                    existingTodo.setDescription(toDo.getDescription());
+                    existingTodo.setCompletionDate(toDo.getCompletionDate());
 
                     toDoRepository.save(existingTodo);
                     return ResponseEntity.ok(existingTodo);
@@ -64,10 +64,10 @@ public class ToDoController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteToDo(@PathVariable Long id) {
         return toDoRepository.findById(id)
-                .map(todo -> {
-                    toDoRepository.delete(todo);
-                    return ResponseEntity.noContent().<Void>build(); // Explicitly specify type for clarity
+                .map(toDo -> {
+                    toDoRepository.delete(toDo);
+                    return ResponseEntity.noContent().<Void>build();
                 })
-                .orElseGet(() -> ResponseEntity.<Void>notFound().build()); // Ensure proper type is specified
+                .orElseGet(() -> ResponseEntity.<Void>notFound().build());
     }
 }

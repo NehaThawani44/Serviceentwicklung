@@ -9,7 +9,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        // Adjust "/api/**" if your API endpoint patterns differ
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:8080")  // URL of the frontend
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")

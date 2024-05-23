@@ -9,3 +9,4 @@ COPY target/task-service-0.0.1-SNAPSHOT.jar task-service.jar
 
 # Command to run the application
 CMD ["java", "-jar", "task-service.jar"]
+

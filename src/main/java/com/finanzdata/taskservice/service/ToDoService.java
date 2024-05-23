@@ -23,8 +23,8 @@ public class ToDoService {
         return toDoRepository.findAll();
     }
 
-    public ToDo saveTodo(ToDo todo) {
-        return toDoRepository.save(todo);
+    public ToDo saveTodo(ToDo toDo) {
+        return toDoRepository.save(toDo);
     }
 
     public Optional<ToDo> findTodoById(Long id) {

@@ -43,14 +43,14 @@ public class ToDoServiceTest {
 
     @Test
     void findTodoById_WhenTodoExists_ReturnsTodo() {
-        // Setup
+
         Optional<ToDo> expectedTodo = Optional.of(new ToDo(1L, "Task 1", "Description 1", LocalDate.now()));
         when(toDoRepository.findById(1L)).thenReturn(expectedTodo);
 
-        // Execution
+
         Optional<ToDo> actualTodo = toDoService.findTodoById(1L);
 
-        // Verify
+
         assertTrue(actualTodo.isPresent());
         assertEquals(expectedTodo.get().getId(), actualTodo.get().getId());
         verify(toDoRepository).findById(1L);
@@ -58,28 +58,28 @@ public class ToDoServiceTest {
 
     @Test
     void findTodoById_WhenTodoDoesNotExist_ReturnsEmpty() {
-        // Setup
+
         when(toDoRepository.findById(1L)).thenReturn(Optional.empty());
 
-        // Execution
+
         Optional<ToDo> todo = toDoService.findTodoById(1L);
 
-        // Verify
+
         assertFalse(todo.isPresent());
         verify(toDoRepository).findById(1L);
     }
 
     @Test
     void saveTodo_SavesAndReturnsTodo() {
-        // Setup
+
         ToDo toDo = new ToDo(null, "New Task", "Description", LocalDate.now());
         ToDo savedToDo = new ToDo(1L, "New Task", "Description", LocalDate.now());
         when(toDoRepository.save(toDo)).thenReturn(savedToDo);
 
-        // Execution
+
         ToDo result = toDoService.saveTodo(toDo);
 
-        // Verify
+
         assertNotNull(result);
         assertEquals(savedToDo.getId(), result.getId());
         verify(toDoRepository).save(toDo);
@@ -87,10 +87,10 @@ public class ToDoServiceTest {
 
     @Test
     void deleteTodoById_DeletesById() {
-        // Execution
+
         toDoService.deleteToDoById(1L);
 
-        // Verify
+        
         verify(toDoRepository).deleteById(1L);
     }
 }

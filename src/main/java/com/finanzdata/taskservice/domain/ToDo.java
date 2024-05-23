@@ -105,9 +105,6 @@ public class ToDo {
         this.description = description;
         this.completionDate = completionDate;
     }
-// Constructors
-
-    public ToDo() {}
 
 
 
