@@ -36,23 +36,50 @@ Note: Master branch has apis using Postgresql, the branch h2_config is only for 
     ```bash
     mvn clean install
     ```
-
-4. Run the script:
+4. Run the Application Locally :
+   mvn spring-boot:run -Dspring-boot.run.profiles=dev
+   
+4. Run the application via Docker:
     ```bash
     java -jar target/task-service-0.0.1-SNAPSHOT.jar 
     ```
 
 Now, the service is up and running, ready to manage to-dos.
 
+### Docker Setup
+Building Docker Image
+To build a Docker image of the application, ensure you have a Dockerfile at the root of the project, then run:
+```bash
+docker build -t task-service:latest .
+ ```
 
+### Running with Docker Compose
+To start the application using Docker Compose with the desired profile:
 
-### Running the Application
+```bash
+SPRING_PROFILES_ACTIVE=dev docker-compose up
+ ```
 
 After building the project with the provided script, the Spring Boot server will start. You can access the web interface by navigating to http://localhost:8080 in your web browser.
 
-### Using the API
+Ensure your docker-compose.yml file is configured to pass the SPRING_PROFILES_ACTIVE environment variable as needed.
 
-View TODO Entries: Open your browser and go to http://localhost:8080. All current TODO entries will be displayed.
+### Deploying to Production
+Before deploying to production, ensure the production database and any external services are configured correctly. Here I am only providing configurations for dev environment.
+
+Run with Dev Profile:
+```bash
+java -jar target/task-service-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+ ```
+Or using Docker:
+```bash
+docker run -e SPRING_PROFILES_ACTIVE=dev -p 8080:8080 task-service:latest
+ ```
+
+
+### Usage
+
+View TODO Entries: Open your browser and go to http://localhost:80807. All current TODO entries will be displayed, if you have added. Currently we are adding Todos via postman.
 Delete a TODO Entry: Click on a TODO entry on the website to delete it.
 
 ```bash
