@@ -64,8 +64,8 @@ After building the project with the provided script, the Spring Boot server will
 
 Ensure your docker-compose.yml file is configured to pass the SPRING_PROFILES_ACTIVE environment variable as needed.
 
-### Deploying to Production
-Before deploying to production, ensure the production database and any external services are configured correctly. Here I am only providing configurations for dev environment.
+### Deploying to Dev or Production Environment
+Before deploying to production or dev, ensure the production database or dev database and any external services are configured correctly. Here I am only providing configurations for dev environment.
 
 Run with Dev Profile:
 ```bash
