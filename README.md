@@ -8,18 +8,17 @@ it offers a RESTful API for the full lifecycle management of to-dos.
 
 - **CRUD Operations**: Manage your to-dos with full create, read, update, and delete.
 - **Data Persistence**: Utilizes the h2 DB to ensure data is maintained across application restarts.
-- **Efficient and Faster**: Built on SpringBoot, known for its minimal, lightweight, and rapid startup time.
-- **Flexible Data Access**: Utilizes Hibernate, embracing the power of ORM over the straightforwardness of JDBC and bypassing the need for simpler frameworks like JDBI.
+- **Efficient and Faster**: Built on Spring Boot, known for its minimal complexity for dependencies.
 - **Testing Ready**:  Includes unit and integration tests, ensuring reliable operation.
+-  **Scripting**: Shell scripts for Unix/Linux and Batch scripts for Windows
 
 ## Getting Started
 
 ### Prerequisites
 
 - Java JDK 17 
-- Maven 3.8.1 
-- SpringBoot 2.0.0
-- Postgresql 42.2.14
+- SpringBoot 2.7.3
+
 
 ### Installation
 Note: Master branch has apis using Postgresql, the branch h2_config is only for reference for H2 database config.
@@ -38,9 +37,9 @@ Note: Master branch has apis using Postgresql, the branch h2_config is only for 
     mvn clean install
     ```
 
-4. Build the application:
+4. Run the script:
     ```bash
-    java -jar target/dropwizard-SNAPSHOT.jar server config.yml
+    java -jar target/task-service-0.0.1-SNAPSHOT.jar 
     ```
 
 Now, the service is up and running, ready to manage to-dos.
@@ -62,42 +61,16 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "description": "List out all emails",
   "completionDate": "2024-08-29"
 }' http://localhost:8080/todos/
-
-curl -X POST http://localhost:8095/todos \
-     -H 'Content-Type: application/json' \
-     -d '{
-  
-  "title": "Review Code",
-  "description": "Conduct code review with the team.",
-  "type": "WORK",
-  "status": "IN_PROGRESS",
-  "dueDate": "2023-10-05",
-  "subtasks": [
-    {
-      "id": 1,
-      "title": "Review backend code",
-      "description": "Go through the API service layer.",
-      "status": "PENDING",
-      "dueDate": "2023-10-03",
-  
-    },
-    {
-      "id": 2,
-      "title": "Review frontend code",
-      "description": "Check the React components for the dashboard.",
-      "status": "PENDING",
-      "dueDate": "2023-10-04",
-    
-    }
-  ]
- 
- 
-}'
+'
 		 
 curl -X GET 'http://localhost:8080/todos'		 
 ```
 
-
 Get all the todos: http://localhost:8080/todos
 
-###Response should be like this:
+
+
+
+
+
+
