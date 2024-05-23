@@ -88,7 +88,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "description": "List out all emails",
   "completionDate": "2024-08-29"
 }' http://localhost:8080/todos/
-'
+
 		 
 curl -X GET 'http://localhost:8080/todos'		 
 ```
